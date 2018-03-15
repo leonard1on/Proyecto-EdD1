@@ -6,6 +6,9 @@
 package proyecto.edd1;
 
 import java.awt.CardLayout;
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -32,6 +35,8 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         Main = new javax.swing.JPanel();
         Laberinto = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
         Evaluacion = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         Expresiones = new javax.swing.JPanel();
@@ -63,21 +68,40 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
 
         jLabel2.setText("Laberinto");
 
+        jButton9.setText("Cargar");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton9MouseReleased(evt);
+            }
+        });
+
+        jButton10.setText("Resolver");
+
         javax.swing.GroupLayout LaberintoLayout = new javax.swing.GroupLayout(Laberinto);
         Laberinto.setLayout(LaberintoLayout);
         LaberintoLayout.setHorizontalGroup(
             LaberintoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LaberintoLayout.createSequentialGroup()
-                .addContainerGap(265, Short.MAX_VALUE)
+            .addGroup(LaberintoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(264, 264, 264))
+                .addGap(265, 265, 265))
+            .addGroup(LaberintoLayout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 265, Short.MAX_VALUE)
+                .addComponent(jButton10)
+                .addGap(63, 63, 63))
         );
         LaberintoLayout.setVerticalGroup(
             LaberintoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LaberintoLayout.createSequentialGroup()
-                .addGap(81, 81, 81)
+                .addContainerGap()
                 .addComponent(jLabel2)
-                .addContainerGap(290, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addGroup(LaberintoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton9)
+                    .addComponent(jButton10))
+                .addContainerGap(316, Short.MAX_VALUE))
         );
 
         Main.add(Laberinto, "Laberinto");
@@ -396,6 +420,15 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         card.show(Main, "Expresiones");
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton9MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseReleased
+        JFileChooser fc = new JFileChooser("./");
+        fc.setDialogTitle("Seleccione un archivo con el laberinto.");
+        FileNameExtensionFilter fe = new FileNameExtensionFilter("Archivo de texto. (.txt)", ".txt");
+        fc.setFileFilter(fe);
+        fc.showOpenDialog(null);
+        File f = fc.getSelectedFile();
+    }//GEN-LAST:event_jButton9MouseReleased
+
     /**
      * @param args the command line arguments
      */
@@ -442,6 +475,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JPanel Origen;
     private javax.swing.JPanel Origenes;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -449,6 +483,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
