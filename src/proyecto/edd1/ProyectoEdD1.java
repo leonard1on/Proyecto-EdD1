@@ -41,6 +41,26 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         Expresiones = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        TFrespuesta = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        siete = new javax.swing.JButton();
+        ocho = new javax.swing.JButton();
+        nueve = new javax.swing.JButton();
+        DEL = new javax.swing.JButton();
+        cuatro = new javax.swing.JButton();
+        cinco = new javax.swing.JButton();
+        seis = new javax.swing.JButton();
+        multiplicar = new javax.swing.JButton();
+        tres = new javax.swing.JButton();
+        dos = new javax.swing.JButton();
+        uno = new javax.swing.JButton();
+        cero = new javax.swing.JButton();
+        mas = new javax.swing.JButton();
+        decimal = new javax.swing.JButton();
+        dividir = new javax.swing.JButton();
+        menos = new javax.swing.JButton();
+        igual = new javax.swing.JButton();
         Compresiones = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         Bicoloreable = new javax.swing.JPanel();
@@ -129,21 +149,241 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
 
         jLabel4.setText("Expresiones");
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        TFrespuesta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFrespuestaActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("CASIO");
+
+        siete.setText("7");
+        siete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sieteActionPerformed(evt);
+            }
+        });
+
+        ocho.setText("8");
+        ocho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ochoActionPerformed(evt);
+            }
+        });
+
+        nueve.setText("9");
+        nueve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nueveActionPerformed(evt);
+            }
+        });
+
+        DEL.setText("DEL");
+        DEL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DELActionPerformed(evt);
+            }
+        });
+
+        cuatro.setText("4");
+        cuatro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cuatroActionPerformed(evt);
+            }
+        });
+
+        cinco.setText("5");
+        cinco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cincoActionPerformed(evt);
+            }
+        });
+
+        seis.setText("6");
+        seis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seisActionPerformed(evt);
+            }
+        });
+
+        multiplicar.setText("x");
+        multiplicar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                multiplicarActionPerformed(evt);
+            }
+        });
+
+        tres.setText("3");
+        tres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tresActionPerformed(evt);
+            }
+        });
+
+        dos.setText("2");
+        dos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dosActionPerformed(evt);
+            }
+        });
+
+        uno.setText("1");
+        uno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unoActionPerformed(evt);
+            }
+        });
+
+        cero.setText("0");
+        cero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ceroActionPerformed(evt);
+            }
+        });
+
+        mas.setText("+");
+        mas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                masActionPerformed(evt);
+            }
+        });
+
+        decimal.setText(".");
+        decimal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                decimalActionPerformed(evt);
+            }
+        });
+
+        dividir.setText("÷");
+        dividir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dividirActionPerformed(evt);
+            }
+        });
+
+        menos.setText("-");
+        menos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menosActionPerformed(evt);
+            }
+        });
+
+        igual.setText("=");
+        igual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                igualActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(tres, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(uno, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(mas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(cuatro, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cinco, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(seis, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(multiplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel10)
+                    .addComponent(TFrespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(siete, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ocho, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nueve, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DEL))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(igual, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(cero, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(decimal, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(dividir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(menos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {DEL, cero, cinco, cuatro, decimal, dividir, dos, mas, menos, multiplicar, nueve, ocho, seis, siete, tres, uno});
+
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel10)
+                .addGap(18, 18, 18)
+                .addComponent(TFrespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(siete)
+                    .addComponent(ocho)
+                    .addComponent(nueve)
+                    .addComponent(DEL))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cuatro)
+                    .addComponent(cinco)
+                    .addComponent(seis)
+                    .addComponent(multiplicar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tres)
+                    .addComponent(dos)
+                    .addComponent(uno)
+                    .addComponent(mas))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cero)
+                    .addComponent(decimal)
+                    .addComponent(dividir)
+                    .addComponent(menos))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(igual)
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout ExpresionesLayout = new javax.swing.GroupLayout(Expresiones);
         Expresiones.setLayout(ExpresionesLayout);
         ExpresionesLayout.setHorizontalGroup(
             ExpresionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ExpresionesLayout.createSequentialGroup()
-                .addGap(244, 244, 244)
-                .addComponent(jLabel4)
-                .addContainerGap(268, Short.MAX_VALUE))
+                .addGroup(ExpresionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ExpresionesLayout.createSequentialGroup()
+                        .addGap(244, 244, 244)
+                        .addComponent(jLabel4))
+                    .addGroup(ExpresionesLayout.createSequentialGroup()
+                        .addGap(153, 153, 153)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
         ExpresionesLayout.setVerticalGroup(
             ExpresionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ExpresionesLayout.createSequentialGroup()
-                .addGap(95, 95, 95)
+                .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap(276, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         Main.add(Expresiones, "Expresiones");
@@ -429,6 +669,156 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         File f = fc.getSelectedFile();
     }//GEN-LAST:event_jButton9MouseReleased
 
+    private void TFrespuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFrespuestaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFrespuestaActionPerformed
+
+    private void ceroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ceroActionPerformed
+        // TODO add your handling code here:
+        TFrespuesta.setText(TFrespuesta.getText() + "0");
+    }//GEN-LAST:event_ceroActionPerformed
+
+    private void tresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tresActionPerformed
+        // TODO add your handling code here:
+        TFrespuesta.setText(TFrespuesta.getText() + "3");
+    }//GEN-LAST:event_tresActionPerformed
+
+    private void cuatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuatroActionPerformed
+        // TODO add your handling code here:
+        TFrespuesta.setText(TFrespuesta.getText() + "4");
+    }//GEN-LAST:event_cuatroActionPerformed
+
+    private void sieteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sieteActionPerformed
+        // TODO add your handling code here:
+        TFrespuesta.setText(TFrespuesta.getText() + "7");
+    }//GEN-LAST:event_sieteActionPerformed
+
+    private void ochoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ochoActionPerformed
+        // TODO add your handling code here:
+        TFrespuesta.setText(TFrespuesta.getText() + "8");
+    }//GEN-LAST:event_ochoActionPerformed
+
+    private void cincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cincoActionPerformed
+        // TODO add your handling code here:
+        TFrespuesta.setText(TFrespuesta.getText() + "5");
+    }//GEN-LAST:event_cincoActionPerformed
+
+    private void dosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dosActionPerformed
+        // TODO add your handling code here:
+        TFrespuesta.setText(TFrespuesta.getText() + "2");
+    }//GEN-LAST:event_dosActionPerformed
+
+    private void decimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decimalActionPerformed
+        // TODO add your handling code here:
+        TFrespuesta.setText(TFrespuesta.getText() + ".");
+    }//GEN-LAST:event_decimalActionPerformed
+
+    private void nueveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nueveActionPerformed
+        // TODO add your handling code here:
+        TFrespuesta.setText(TFrespuesta.getText() + "9");
+    }//GEN-LAST:event_nueveActionPerformed
+
+    private void seisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seisActionPerformed
+        // TODO add your handling code here:
+        TFrespuesta.setText(TFrespuesta.getText() + "6");
+    }//GEN-LAST:event_seisActionPerformed
+
+    private void unoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unoActionPerformed
+        // TODO add your handling code here:
+        TFrespuesta.setText(TFrespuesta.getText() + "1");
+    }//GEN-LAST:event_unoActionPerformed
+
+    private void dividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dividirActionPerformed
+        // TODO add your handling code here:
+        TFrespuesta.setText(TFrespuesta.getText() + "/");
+    }//GEN-LAST:event_dividirActionPerformed
+
+    private void multiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplicarActionPerformed
+        // TODO add your handling code here:
+        TFrespuesta.setText(TFrespuesta.getText() + "*");
+    }//GEN-LAST:event_multiplicarActionPerformed
+
+    private void masActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masActionPerformed
+        // TODO add your handling code here:
+        TFrespuesta.setText(TFrespuesta.getText() + "+");
+    }//GEN-LAST:event_masActionPerformed
+
+    private void menosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menosActionPerformed
+        // TODO add your handling code here:
+        TFrespuesta.setText(TFrespuesta.getText() + "-");
+    }//GEN-LAST:event_menosActionPerformed
+
+    private void DELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELActionPerformed
+        // TODO add your handling code here:
+        if (TFrespuesta.getText().length() != 0) {
+            TFrespuesta.setText(TFrespuesta.getText().substring(0, TFrespuesta.getText().length() - 1));
+        }
+    }//GEN-LAST:event_DELActionPerformed
+
+    private void igualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_igualActionPerformed
+        String problema = TFrespuesta.getText()+" ";
+        if (TFrespuesta.getText().length() == 0) {
+
+        } else {
+            ArrayList numeros = new ArrayList();
+            ArrayList operadores = new ArrayList();
+
+            for (int i = 0; i < problema.length(); i++) {
+                if (Character.getNumericValue(problema.charAt(i)) < 10 && Character.getNumericValue(problema.charAt(i)) >= 0) {
+                    String num = "" + problema.charAt(i);
+                    if (i + 1 != problema.length()) {
+
+                        while (Character.getNumericValue(problema.charAt(i + 1)) < 10 && Character.getNumericValue(problema.charAt(i + 1)) >= 0) {
+                            num += problema.charAt(i + 1);
+                            i++;
+                        }
+
+                    }
+                    numeros.append(Double.parseDouble(num));
+
+                } else if (problema.charAt(i) == '*' || problema.charAt(i) == '/' || problema.charAt(i) == '+' || problema.charAt(i) == '-') {
+                    operadores.append(problema.charAt(i));
+
+                } else {
+                    i = problema.length();
+                }
+            }
+
+            for (int i = 0; i < numeros.getAvailpos(); i++) {
+                if (operadores.get(i) == (Object) '*') {
+                    numeros.set(i, ((double) numeros.get(i) * (double) numeros.get(i + 1)));
+                    operadores.delete(i);
+                    numeros.delete(i + 1);
+                    i = -1;
+                }
+
+                if (operadores.get(i) == (Object) '/') {
+                    numeros.set(i, ((double) numeros.get(i) / (double) numeros.get(i + 1)));
+                    operadores.delete(i);
+                    numeros.delete(i + 1);
+                    i = -1;
+                }
+            }
+
+            for (int i = 0; i < numeros.getAvailpos(); i++) {
+                if (operadores.get(i) == (Object) '+') {
+                    numeros.set(i, ((double) numeros.get(i) + (double) numeros.get(i + 1)));
+                    operadores.delete(i);
+                    numeros.delete(i + 1);
+                    i = -1;
+                }
+
+                if (operadores.get(i) == (Object) '-') {
+                    numeros.set(i, ((double) numeros.get(i) - (double) numeros.get(i + 1)));
+                    operadores.delete(i);
+                    numeros.delete(i + 1);
+                    i = -1;
+                }
+            }
+            TFrespuesta.setText("" + numeros.get(0));
+        }
+    }//GEN-LAST:event_igualActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -440,7 +830,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Metal".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -468,12 +858,21 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JPanel Arbol;
     private javax.swing.JPanel Bicoloreable;
     private javax.swing.JPanel Compresiones;
+    private javax.swing.JButton DEL;
     private javax.swing.JPanel Evaluacion;
     private javax.swing.JPanel Expresiones;
     private javax.swing.JPanel Laberinto;
     private javax.swing.JPanel Main;
     private javax.swing.JPanel Origen;
     private javax.swing.JPanel Origenes;
+    private javax.swing.JTextField TFrespuesta;
+    private javax.swing.JButton cero;
+    private javax.swing.JButton cinco;
+    private javax.swing.JButton cuatro;
+    private javax.swing.JButton decimal;
+    private javax.swing.JButton dividir;
+    private javax.swing.JButton dos;
+    private javax.swing.JButton igual;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
@@ -485,6 +884,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -493,5 +893,15 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton mas;
+    private javax.swing.JButton menos;
+    private javax.swing.JButton multiplicar;
+    private javax.swing.JButton nueve;
+    private javax.swing.JButton ocho;
+    private javax.swing.JButton seis;
+    private javax.swing.JButton siete;
+    private javax.swing.JButton tres;
+    private javax.swing.JButton uno;
     // End of variables declaration//GEN-END:variables
 }
