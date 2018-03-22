@@ -772,8 +772,8 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         if (TFrespuesta.getText().length() == 0) {
 
         } else {
-            ArrayList numeros = new ArrayList();
-            ArrayList operadores = new ArrayList();
+            Arraylist numeros = new Arraylist();
+            Arraylist operadores = new Arraylist();
 
             for (int i = 0; i < problema.length(); i++) {
                 if (Character.getNumericValue(problema.charAt(i)) < 10 && Character.getNumericValue(problema.charAt(i)) >= 0) {

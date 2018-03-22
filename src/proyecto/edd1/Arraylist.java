@@ -9,12 +9,12 @@ package proyecto.edd1;
  *
  * @author Leonardo Borjas
  */
-public class ArrayList implements Lista{
+public class Arraylist implements Lista{
     private int size = 2000;
     private int availpos=0;
     private Object[] array = new Object [size];
 
-    public ArrayList() {
+    public Arraylist() {
     }
 
     public int getAvailpos() {
