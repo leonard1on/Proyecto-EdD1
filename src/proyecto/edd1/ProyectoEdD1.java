@@ -12,10 +12,12 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.JTree;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import static proyecto.edd1.Prueba.entrada;
-import static proyecto.edd1.Prueba.printMatriz;
-import static proyecto.edd1.Prueba.salida;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+
 
 /**
  *
@@ -46,6 +48,12 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         Evaluacion = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Empresa = new javax.swing.JTree();
+        empresa_jefe = new javax.swing.JButton();
+        nombre_jefe = new javax.swing.JTextField();
+        empresa_empleado = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
         Expresiones = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -140,21 +148,64 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
 
         jLabel3.setText("Evaluacion");
 
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("CEO");
+        Empresa.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane1.setViewportView(Empresa);
+
+        empresa_jefe.setText("Comenzar Empresa");
+        empresa_jefe.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                empresa_jefeMouseReleased(evt);
+            }
+        });
+
+        empresa_empleado.setText("Agregar Empleado");
+        empresa_empleado.setEnabled(false);
+        empresa_empleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                empresa_empleadoMouseReleased(evt);
+            }
+        });
+
+        jTextField1.setEnabled(false);
+
         javax.swing.GroupLayout EvaluacionLayout = new javax.swing.GroupLayout(Evaluacion);
         Evaluacion.setLayout(EvaluacionLayout);
         EvaluacionLayout.setHorizontalGroup(
             EvaluacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EvaluacionLayout.createSequentialGroup()
-                .addGap(230, 230, 230)
+                .addGap(254, 254, 254)
                 .addComponent(jLabel3)
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(EvaluacionLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGroup(EvaluacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(empresa_jefe, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                    .addComponent(nombre_jefe)
+                    .addComponent(empresa_empleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField1))
+                .addGap(37, 37, 37))
         );
         EvaluacionLayout.setVerticalGroup(
             EvaluacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EvaluacionLayout.createSequentialGroup()
-                .addGap(108, 108, 108)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel3)
-                .addContainerGap(263, Short.MAX_VALUE))
+                .addGap(5, 5, 5)
+                .addGroup(EvaluacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+                    .addGroup(EvaluacionLayout.createSequentialGroup()
+                        .addComponent(empresa_jefe)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nombre_jefe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(empresa_empleado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         Main.add(Evaluacion, "Evaluacion");
@@ -605,7 +656,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Main, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -866,6 +917,17 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton10ActionPerformed
 
+    private void empresa_jefeMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empresa_jefeMouseReleased
+        // TODO add your handling code here:
+        Empresa.setModel(new DefaultTreeModel(new DefaultMutableTreeNode(nombre_jefe.getText())));
+        empresa_empleado.setEnabled(true);
+        empresa_jefe.setText("Cambiar Jefe");
+    }//GEN-LAST:event_empresa_jefeMouseReleased
+
+    private void empresa_empleadoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empresa_empleadoMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empresa_empleadoMouseReleased
+
     /**
      * @param args the command line arguments
      */
@@ -1013,6 +1075,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JPanel Bicoloreable;
     private javax.swing.JPanel Compresiones;
     private javax.swing.JButton DEL;
+    private javax.swing.JTree Empresa;
     private javax.swing.JPanel Evaluacion;
     private javax.swing.JPanel Expresiones;
     private javax.swing.JPanel Laberinto;
@@ -1026,6 +1089,8 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JButton decimal;
     private javax.swing.JButton dividir;
     private javax.swing.JButton dos;
+    private javax.swing.JButton empresa_empleado;
+    private javax.swing.JButton empresa_jefe;
     private javax.swing.JButton igual;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -1048,9 +1113,12 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton mas;
     private javax.swing.JButton menos;
     private javax.swing.JButton multiplicar;
+    private javax.swing.JTextField nombre_jefe;
     private javax.swing.JButton nueve;
     private javax.swing.JButton ocho;
     private javax.swing.JButton seis;
@@ -1060,4 +1128,5 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     File f = null;
+    static Scanner sc = new Scanner (System.in);
 }
