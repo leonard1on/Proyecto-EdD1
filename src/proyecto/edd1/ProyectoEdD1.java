@@ -8,6 +8,8 @@ package proyecto.edd1;
 import java.awt.CardLayout;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,7 +19,6 @@ import javax.swing.JTree;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
-
 
 /**
  *
@@ -78,6 +79,15 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         igual = new javax.swing.JButton();
         Compresiones = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        textarea2 = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        textarea3 = new javax.swing.JTextArea();
+        comprimir = new javax.swing.JButton();
+        descomprimir = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        textarea = new javax.swing.JTextArea();
+        cargararchivo = new javax.swing.JButton();
         Bicoloreable = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         Arbol = new javax.swing.JPanel();
@@ -453,21 +463,88 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
 
         jLabel5.setText("Compresiones");
 
+        textarea2.setColumns(20);
+        textarea2.setRows(5);
+        jScrollPane2.setViewportView(textarea2);
+
+        textarea3.setColumns(20);
+        textarea3.setRows(5);
+        jScrollPane3.setViewportView(textarea3);
+
+        comprimir.setText("Comprimir");
+        comprimir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                comprimirMouseReleased(evt);
+            }
+        });
+
+        descomprimir.setText("Descomprimir");
+        descomprimir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                descomprimirMouseReleased(evt);
+            }
+        });
+        descomprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                descomprimirActionPerformed(evt);
+            }
+        });
+
+        textarea.setColumns(20);
+        textarea.setRows(5);
+        jScrollPane4.setViewportView(textarea);
+
+        cargararchivo.setText("Cargar Archivo");
+        cargararchivo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                cargararchivoMouseReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout CompresionesLayout = new javax.swing.GroupLayout(Compresiones);
         Compresiones.setLayout(CompresionesLayout);
         CompresionesLayout.setHorizontalGroup(
             CompresionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CompresionesLayout.createSequentialGroup()
-                .addGap(258, 258, 258)
+                .addGap(79, 79, 79)
+                .addComponent(comprimir)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addComponent(cargararchivo)
+                .addGap(60, 60, 60)
+                .addComponent(descomprimir)
+                .addGap(87, 87, 87))
+            .addGroup(CompresionesLayout.createSequentialGroup()
+                .addGap(249, 249, 249)
                 .addComponent(jLabel5)
-                .addContainerGap(242, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CompresionesLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(CompresionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane4)
+                    .addGroup(CompresionesLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26))
         );
         CompresionesLayout.setVerticalGroup(
             CompresionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CompresionesLayout.createSequentialGroup()
-                .addGap(109, 109, 109)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CompresionesLayout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addContainerGap(262, Short.MAX_VALUE))
+                .addGap(16, 16, 16)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(CompresionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CompresionesLayout.createSequentialGroup()
+                        .addGroup(CompresionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(descomprimir)
+                            .addComponent(comprimir)
+                            .addComponent(cargararchivo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39))
         );
 
         Main.add(Compresiones, "Compresiones");
@@ -928,6 +1005,40 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_empresa_empleadoMouseReleased
 
+    private void comprimirMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comprimirMouseReleased
+        textarea2.setText(compression(textarea.getText()));
+    }//GEN-LAST:event_comprimirMouseReleased
+
+    private void descomprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descomprimirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_descomprimirActionPerformed
+
+    private void descomprimirMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_descomprimirMouseReleased
+        textarea3.setText(decompression(textarea2.getText()));
+    }//GEN-LAST:event_descomprimirMouseReleased
+
+    private void cargararchivoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cargararchivoMouseReleased
+        JFileChooser fc = new JFileChooser("./");
+        fc.setDialogTitle("Seleccione un archivo a cargar.");
+        FileNameExtensionFilter fe = new FileNameExtensionFilter("Archivo de texto. (.txt)", "txt");
+        fc.setFileFilter(fe);
+        fc.showOpenDialog(null);
+        f = fc.getSelectedFile();
+        if (f.isFile()) {
+            try {
+                Scanner file = new Scanner(f);
+                String texto = "";
+                while (file.hasNext()) {
+                    texto += file.nextLine()+'\n';
+                }
+                textarea.setText(texto);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ProyectoEdD1.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+    }//GEN-LAST:event_cargararchivoMouseReleased
+
     /**
      * @param args the command line arguments
      */
@@ -1069,6 +1180,87 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         return stack;
     }
 
+    public static String compression(String s) {
+        String s2 = s;
+        ArrayList<Binarynode> nodos = new ArrayList<>();
+        while (s2.length() != 0) {
+            int frequency = 1;
+            for (int i = 1; i < s2.length(); i++) {
+                if (s2.charAt(i) == s2.charAt(0)) {
+                    frequency++;
+                }
+            }
+            nodos.add(new Binarynode(s2.charAt(0), frequency));
+            s2 = s2.replaceAll("" + s2.charAt(0), "");
+        }
+        Collections.sort(nodos, Binarynode.Comparador);
+        while (nodos.size() != 1) {
+            Binarynode temp = new Binarynode(null, nodos.get(0).getFrequency() + nodos.get(1).getFrequency());
+            temp.AddLeftChild(nodos.get(0));
+            temp.AddRightChild(nodos.get(1));
+            nodos.add(temp);
+            nodos.remove(0);
+            nodos.remove(0);
+            Collections.sort(nodos, Binarynode.Comparador);
+        }
+        raiz = nodos.get(0);
+        String codigo = "";
+        for (int i = 0; i < s.length(); i++) {
+            Binarynode temp = rec(raiz, "" + s.charAt(i));
+            String string = "";
+            while (temp.parent != null) {
+                if (temp.parent.lchild == temp) {
+                    string += "0";
+                } else {
+                    string += "1";
+                }
+                temp = temp.parent;
+            }
+            for (int j = string.length() - 1; j >= 0; j--) {
+                codigo += string.charAt(j);
+            }
+        }
+        return codigo;
+    }
+
+    public static Binarynode rec(Binarynode root, String temp) {
+        if (("" + root.getChar()).equals(temp)) {
+            return root;
+        }
+
+        if (root.LeftChild() != null) {
+            if (("" + rec(root.LeftChild(), temp).getChar()).equals(temp)) {
+                root = rec(root.LeftChild(), temp);
+            }
+        }
+        if (root.RightChild() != null) {
+            if (("" + rec(root.RightChild(), temp).getChar()).equals(temp)) {
+                root = rec(root.RightChild(), temp);
+            }
+        }
+        return root;
+    }
+
+    public static String decompression(String s) {
+        String descomprecion = "";
+        Binarynode mapa = raiz;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '0') {
+                mapa = mapa.lchild;
+                if (mapa.getChar() != null) {
+                    descomprecion += mapa.getChar();
+                    mapa = raiz;
+                }
+            } else {
+                mapa = mapa.rchild;
+                if (mapa.getChar() != null) {
+                    descomprecion += mapa.getChar();
+                    mapa = raiz;
+                }
+            }
+        }
+        return descomprecion;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Arbol;
@@ -1083,10 +1275,13 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JPanel Origen;
     private javax.swing.JPanel Origenes;
     private javax.swing.JTextField TFrespuesta;
+    private javax.swing.JButton cargararchivo;
     private javax.swing.JButton cero;
     private javax.swing.JButton cinco;
+    private javax.swing.JButton comprimir;
     private javax.swing.JButton cuatro;
     private javax.swing.JButton decimal;
+    private javax.swing.JButton descomprimir;
     private javax.swing.JButton dividir;
     private javax.swing.JButton dos;
     private javax.swing.JButton empresa_empleado;
@@ -1114,6 +1309,9 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton mas;
     private javax.swing.JButton menos;
@@ -1123,10 +1321,13 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JButton ocho;
     private javax.swing.JButton seis;
     private javax.swing.JButton siete;
+    private javax.swing.JTextArea textarea;
+    private javax.swing.JTextArea textarea2;
+    private javax.swing.JTextArea textarea3;
     private javax.swing.JButton tres;
     private javax.swing.JButton uno;
     // End of variables declaration//GEN-END:variables
-
     File f = null;
-    static Scanner sc = new Scanner (System.in);
+    static Scanner sc = new Scanner(System.in);
+    static Binarynode raiz;
 }
