@@ -180,7 +180,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
 
         nombre_empleado.setEnabled(false);
 
-        jButton11.setText("jButton11");
+        jButton11.setText("Hacer Evaluacion");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
@@ -199,17 +199,13 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addGroup(EvaluacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EvaluacionLayout.createSequentialGroup()
-                        .addGroup(EvaluacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(empresa_jefe, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
-                            .addComponent(nombre_jefe)
-                            .addComponent(empresa_empleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(nombre_empleado))
-                        .addGap(37, 37, 37))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EvaluacionLayout.createSequentialGroup()
-                        .addComponent(jButton11)
-                        .addGap(128, 128, 128))))
+                .addGroup(EvaluacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(empresa_jefe, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                    .addComponent(nombre_jefe)
+                    .addComponent(empresa_empleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nombre_empleado)
+                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
         );
         EvaluacionLayout.setVerticalGroup(
             EvaluacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1012,8 +1008,8 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private void empresa_jefeMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empresa_jefeMouseReleased
         // TODO add your handling code here:
         if (nombre_jefe.getText().equals("")) {
-            
-        }else{
+
+        } else {
             Empresa.setModel(new DefaultTreeModel(new DefaultMutableTreeNode(new Empleado(nombre_jefe.getText()))));
             empresa_empleado.setEnabled(true);
             nombre_empleado.setEnabled(true);
@@ -1025,41 +1021,40 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private void empresa_empleadoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empresa_empleadoMouseReleased
         // TODO add your handling code here:
         if (Empresa.getLastSelectedPathComponent() == null) {
-        }else{
+        } else {
             DefaultTreeModel m = (DefaultTreeModel) Empresa.getModel();
             DefaultMutableTreeNode n = (DefaultMutableTreeNode) m.getRoot();
             Empleado temp = new Empleado(nombre_empleado.getText());
-            Empleado seleccion = (Empleado)((DefaultMutableTreeNode)Empresa.getLastSelectedPathComponent()).getUserObject();
+            Empleado seleccion = (Empleado) ((DefaultMutableTreeNode) Empresa.getLastSelectedPathComponent()).getUserObject();
             Treenode nodo = rec(raiz2, seleccion);
             nodo.AddChild(new Treenode(temp));
 
             n.removeAllChildren();
-            llenar(raiz2,n);
+            llenar(raiz2, n);
             Empresa.setModel(m);
             m.reload((javax.swing.tree.TreeNode) m.getRoot());
         }
     }//GEN-LAST:event_empresa_empleadoMouseReleased
 
-    public static void llenar(Treenode root, DefaultMutableTreeNode node){
-        if (root.LeftChild()!=null) {
+    public static void llenar(Treenode root, DefaultMutableTreeNode node) {
+        if (root.LeftChild() != null) {
             node.add(new DefaultMutableTreeNode(root.LeftChild().getData()));
             llenar(root.LeftChild(), node.getFirstLeaf());
         }
-        
 
-        if (root.RightSibling()!=null) {
-            ((DefaultMutableTreeNode)node.getParent()).add(new DefaultMutableTreeNode(root.RightSibling().getData()));
+        if (root.RightSibling() != null) {
+            ((DefaultMutableTreeNode) node.getParent()).add(new DefaultMutableTreeNode(root.RightSibling().getData()));
             llenar(root.RightSibling(), node.getNextSibling());
         }
     }
-    
+
     public static Treenode rec(Treenode root, Empleado temp) {
-        if ((Empleado)root.getData() == temp) {
+        if ((Empleado) root.getData() == temp) {
             return root;
         }
 
         if (root.LeftChild() != null) {
-            if ( (Empleado) rec(root.LeftChild(), temp).getData() == temp) {
+            if ((Empleado) rec(root.LeftChild(), temp).getData() == temp) {
                 root = rec(root.LeftChild(), temp);
             }
         }
@@ -1070,8 +1065,6 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         }
         return root;
     }
-    
-
 
     private void comprimirMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comprimirMouseReleased
         textarea2.setText(compression(textarea.getText()));
@@ -1097,7 +1090,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
                 Scanner file = new Scanner(f);
                 String texto = "";
                 while (file.hasNext()) {
-                    texto += file.nextLine()+'\n';
+                    texto += file.nextLine() + '\n';
                 }
                 textarea.setText(texto);
             } catch (FileNotFoundException ex) {
@@ -1109,9 +1102,14 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
-        DefaultMutableTreeNode n = (DefaultMutableTreeNode)Empresa.getLastSelectedPathComponent();
-        System.out.println(n.getChildCount());
-        
+        posterior(raiz2);
+        Empresa.setModel(new DefaultTreeModel(new DefaultMutableTreeNode(raiz2.getData())));
+        DefaultTreeModel m = (DefaultTreeModel) Empresa.getModel();
+        DefaultMutableTreeNode n = (DefaultMutableTreeNode) m.getRoot();
+        n.removeAllChildren();
+        llenar(raiz2, n);
+        Empresa.setModel(m);
+        m.reload((javax.swing.tree.TreeNode) m.getRoot());
     }//GEN-LAST:event_jButton11ActionPerformed
 
     /**
@@ -1335,6 +1333,30 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
             }
         }
         return descomprecion;
+    }
+
+    public static void posterior(Treenode root) {
+        if (root.LeftChild() != null) {
+            posterior(root.LeftChild());
+        }
+
+        if (root.children.isEmpty()) {
+            Scanner sc = new Scanner(System.in);
+            int nota = Integer.parseInt(JOptionPane.showInputDialog("Que nota le dara a " + ((Empleado) root.getData()).getNombre()));
+            ((Empleado) root.getData()).setNota(nota);
+        } else {
+            float cont = 0;
+            for (int i = 0; i < root.children.size(); i++) {
+                cont += ((Empleado) ((Treenode) root.children.get(i)).getData()).getNota();
+            }
+            ((Empleado) root.getData()).setNota(cont / root.children.size());
+        }
+
+        System.out.println(((Empleado) root.getData()).getNombre() + " - " + ((Empleado) root.getData()).getNota());
+
+        if (root.RightSibling() != null) {
+            posterior(root.RightSibling());
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
