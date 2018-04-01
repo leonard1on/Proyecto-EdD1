@@ -1036,36 +1036,6 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_empresa_empleadoMouseReleased
 
-    public static void llenar(Treenode root, DefaultMutableTreeNode node) {
-        if (root.LeftChild() != null) {
-            node.add(new DefaultMutableTreeNode(root.LeftChild().getData()));
-            llenar(root.LeftChild(), node.getFirstLeaf());
-        }
-
-        if (root.RightSibling() != null) {
-            ((DefaultMutableTreeNode) node.getParent()).add(new DefaultMutableTreeNode(root.RightSibling().getData()));
-            llenar(root.RightSibling(), node.getNextSibling());
-        }
-    }
-
-    public static Treenode rec(Treenode root, Empleado temp) {
-        if ((Empleado) root.getData() == temp) {
-            return root;
-        }
-
-        if (root.LeftChild() != null) {
-            if ((Empleado) rec(root.LeftChild(), temp).getData() == temp) {
-                root = rec(root.LeftChild(), temp);
-            }
-        }
-        if (root.RightSibling() != null) {
-            if ((Empleado) rec(root.RightSibling(), temp).getData() == temp) {
-                root = rec(root.RightSibling(), temp);
-            }
-        }
-        return root;
-    }
-
     private void comprimirMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comprimirMouseReleased
         textarea2.setText(compression(textarea.getText()));
     }//GEN-LAST:event_comprimirMouseReleased
@@ -1333,6 +1303,36 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
             }
         }
         return descomprecion;
+    }
+
+    public static void llenar(Treenode root, DefaultMutableTreeNode node) {
+        if (root.LeftChild() != null) {
+            node.add(new DefaultMutableTreeNode(root.LeftChild().getData()));
+            llenar(root.LeftChild(), node.getFirstLeaf());
+        }
+
+        if (root.RightSibling() != null) {
+            ((DefaultMutableTreeNode) node.getParent()).add(new DefaultMutableTreeNode(root.RightSibling().getData()));
+            llenar(root.RightSibling(), node.getNextSibling());
+        }
+    }
+
+    public static Treenode rec(Treenode root, Empleado temp) {
+        if ((Empleado) root.getData() == temp) {
+            return root;
+        }
+
+        if (root.LeftChild() != null) {
+            if ((Empleado) rec(root.LeftChild(), temp).getData() == temp) {
+                root = rec(root.LeftChild(), temp);
+            }
+        }
+        if (root.RightSibling() != null) {
+            if ((Empleado) rec(root.RightSibling(), temp).getData() == temp) {
+                root = rec(root.RightSibling(), temp);
+            }
+        }
+        return root;
     }
 
     public static void posterior(Treenode root) {
