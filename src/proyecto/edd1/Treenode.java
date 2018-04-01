@@ -22,8 +22,8 @@ public class Treenode {
         parent=null;
     }
 
-    public void AddChild(Treenode child, Treenode parent) {
-        child.parent=parent;
+    public void AddChild(Treenode child) {
+        child.parent=this;
         children.add(child);
         
     }
@@ -62,7 +62,10 @@ public class Treenode {
     public void setData(Object data) {
         this.data = data;
     }
-
+    
+    public boolean isLeaf(Treenode nodo){
+        return nodo.LeftChild() == null;
+    }
     
     
 

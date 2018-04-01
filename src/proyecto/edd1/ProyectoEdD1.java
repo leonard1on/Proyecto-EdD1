@@ -54,7 +54,8 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         empresa_jefe = new javax.swing.JButton();
         nombre_jefe = new javax.swing.JTextField();
         empresa_empleado = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        nombre_empleado = new javax.swing.JTextField();
+        jButton11 = new javax.swing.JButton();
         Expresiones = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -177,7 +178,14 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setEnabled(false);
+        nombre_empleado.setEnabled(false);
+
+        jButton11.setText("jButton11");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout EvaluacionLayout = new javax.swing.GroupLayout(Evaluacion);
         Evaluacion.setLayout(EvaluacionLayout);
@@ -191,12 +199,17 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addGroup(EvaluacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(empresa_jefe, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
-                    .addComponent(nombre_jefe)
-                    .addComponent(empresa_empleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1))
-                .addGap(37, 37, 37))
+                .addGroup(EvaluacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EvaluacionLayout.createSequentialGroup()
+                        .addGroup(EvaluacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(empresa_jefe, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                            .addComponent(nombre_jefe)
+                            .addComponent(empresa_empleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(nombre_empleado))
+                        .addGap(37, 37, 37))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EvaluacionLayout.createSequentialGroup()
+                        .addComponent(jButton11)
+                        .addGap(128, 128, 128))))
         );
         EvaluacionLayout.setVerticalGroup(
             EvaluacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,7 +226,9 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
                         .addGap(41, 41, 41)
                         .addComponent(empresa_empleado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nombre_empleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(jButton11)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -530,7 +545,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         CompresionesLayout.setVerticalGroup(
             CompresionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CompresionesLayout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(16, 16, 16)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -996,14 +1011,65 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
 
     private void empresa_jefeMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empresa_jefeMouseReleased
         // TODO add your handling code here:
-        Empresa.setModel(new DefaultTreeModel(new DefaultMutableTreeNode(nombre_jefe.getText())));
-        empresa_empleado.setEnabled(true);
-        empresa_jefe.setText("Cambiar Jefe");
+        if (nombre_jefe.getText().equals("")) {
+            
+        }else{
+            Empresa.setModel(new DefaultTreeModel(new DefaultMutableTreeNode(new Empleado(nombre_jefe.getText()))));
+            empresa_empleado.setEnabled(true);
+            nombre_empleado.setEnabled(true);
+            empresa_jefe.setText("Cambiar Jefe");
+            raiz2 = new Treenode(new Empleado(nombre_jefe.getText()));
+        }
     }//GEN-LAST:event_empresa_jefeMouseReleased
 
     private void empresa_empleadoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empresa_empleadoMouseReleased
         // TODO add your handling code here:
+        DefaultTreeModel m = (DefaultTreeModel) Empresa.getModel();
+        DefaultMutableTreeNode n = (DefaultMutableTreeNode) m.getRoot();
+        
+        Empleado temp = new Empleado(nombre_empleado.getText());
+        Empleado seleccion = (Empleado)((DefaultMutableTreeNode)Empresa.getLastSelectedPathComponent()).getUserObject();
+        Treenode nodo = rec(raiz2, seleccion);
+        nodo.AddChild(new Treenode(temp));
+        
+        n.removeAllChildren();
+        llenar(raiz2,n);
+        Empresa.setModel(m);
+        m.reload((javax.swing.tree.TreeNode) m.getRoot());
     }//GEN-LAST:event_empresa_empleadoMouseReleased
+
+    public static void llenar(Treenode root, DefaultMutableTreeNode node){
+        if (root.LeftChild()!=null) {
+            node.add(new DefaultMutableTreeNode(root.LeftChild().getData()));
+            llenar(root.LeftChild(), node.getFirstLeaf());
+        }
+        
+
+        if (root.RightSibling()!=null) {
+            ((DefaultMutableTreeNode)node.getParent()).add(new DefaultMutableTreeNode(root.RightSibling().getData()));
+            llenar(root.RightSibling(), node.getNextSibling());
+        }
+    }
+    
+    public static Treenode rec(Treenode root, Empleado temp) {
+        if ((Empleado)root.getData() == temp) {
+            return root;
+        }
+
+        if (root.LeftChild() != null) {
+            if ( (Empleado) rec(root.LeftChild(), temp).getData() == temp) {
+                root = rec(root.LeftChild(), temp);
+            }
+        }
+        if (root.RightSibling() != null) {
+            if ((Empleado) rec(root.RightSibling(), temp).getData() == temp) {
+                root = rec(root.RightSibling(), temp);
+            }
+        }
+        return root;
+    }
+    
+
 
     private void comprimirMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comprimirMouseReleased
         textarea2.setText(compression(textarea.getText()));
@@ -1039,6 +1105,13 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cargararchivoMouseReleased
 
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+        DefaultMutableTreeNode n = (DefaultMutableTreeNode)Empresa.getLastSelectedPathComponent();
+        System.out.println(n.getChildCount());
+        
+    }//GEN-LAST:event_jButton11ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1050,7 +1123,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -1289,6 +1362,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JButton igual;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1312,10 +1386,10 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton mas;
     private javax.swing.JButton menos;
     private javax.swing.JButton multiplicar;
+    private javax.swing.JTextField nombre_empleado;
     private javax.swing.JTextField nombre_jefe;
     private javax.swing.JButton nueve;
     private javax.swing.JButton ocho;
@@ -1330,4 +1404,5 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     File f = null;
     static Scanner sc = new Scanner(System.in);
     static Binarynode raiz;
+    static Treenode raiz2;
 }
