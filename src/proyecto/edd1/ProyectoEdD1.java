@@ -1024,18 +1024,20 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
 
     private void empresa_empleadoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empresa_empleadoMouseReleased
         // TODO add your handling code here:
-        DefaultTreeModel m = (DefaultTreeModel) Empresa.getModel();
-        DefaultMutableTreeNode n = (DefaultMutableTreeNode) m.getRoot();
-        
-        Empleado temp = new Empleado(nombre_empleado.getText());
-        Empleado seleccion = (Empleado)((DefaultMutableTreeNode)Empresa.getLastSelectedPathComponent()).getUserObject();
-        Treenode nodo = rec(raiz2, seleccion);
-        nodo.AddChild(new Treenode(temp));
-        
-        n.removeAllChildren();
-        llenar(raiz2,n);
-        Empresa.setModel(m);
-        m.reload((javax.swing.tree.TreeNode) m.getRoot());
+        if (Empresa.getLastSelectedPathComponent() == null) {
+        }else{
+            DefaultTreeModel m = (DefaultTreeModel) Empresa.getModel();
+            DefaultMutableTreeNode n = (DefaultMutableTreeNode) m.getRoot();
+            Empleado temp = new Empleado(nombre_empleado.getText());
+            Empleado seleccion = (Empleado)((DefaultMutableTreeNode)Empresa.getLastSelectedPathComponent()).getUserObject();
+            Treenode nodo = rec(raiz2, seleccion);
+            nodo.AddChild(new Treenode(temp));
+
+            n.removeAllChildren();
+            llenar(raiz2,n);
+            Empresa.setModel(m);
+            m.reload((javax.swing.tree.TreeNode) m.getRoot());
+        }
     }//GEN-LAST:event_empresa_empleadoMouseReleased
 
     public static void llenar(Treenode root, DefaultMutableTreeNode node){
