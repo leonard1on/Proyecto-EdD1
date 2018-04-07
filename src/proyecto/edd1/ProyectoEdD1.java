@@ -581,16 +581,16 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         BicoloreableLayout.setHorizontalGroup(
             BicoloreableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BicoloreableLayout.createSequentialGroup()
-                .addGap(226, 226, 226)
+                .addGap(234, 234, 234)
                 .addComponent(jLabel6)
-                .addContainerGap(286, Short.MAX_VALUE))
+                .addContainerGap(278, Short.MAX_VALUE))
         );
         BicoloreableLayout.setVerticalGroup(
             BicoloreableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BicoloreableLayout.createSequentialGroup()
-                .addGap(147, 147, 147)
+                .addGap(50, 50, 50)
                 .addComponent(jLabel6)
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addContainerGap(321, Short.MAX_VALUE))
         );
 
         Main.add(Bicoloreable, "Bicoloreable");
