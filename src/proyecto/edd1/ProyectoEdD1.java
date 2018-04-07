@@ -47,6 +47,8 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        laberintotext = new javax.swing.JTextArea();
         Evaluacion = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -128,20 +130,30 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
             }
         });
 
+        laberintotext.setEditable(false);
+        laberintotext.setColumns(20);
+        laberintotext.setRows(5);
+        jScrollPane5.setViewportView(laberintotext);
+
         javax.swing.GroupLayout LaberintoLayout = new javax.swing.GroupLayout(Laberinto);
         Laberinto.setLayout(LaberintoLayout);
         LaberintoLayout.setHorizontalGroup(
             LaberintoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LaberintoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(265, 265, 265))
-            .addGroup(LaberintoLayout.createSequentialGroup()
                 .addGap(105, 105, 105)
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 265, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 260, Short.MAX_VALUE)
                 .addComponent(jButton10)
                 .addGap(63, 63, 63))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LaberintoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(LaberintoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LaberintoLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(265, 265, 265))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LaberintoLayout.createSequentialGroup()
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43))))
         );
         LaberintoLayout.setVerticalGroup(
             LaberintoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,7 +164,9 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
                 .addGroup(LaberintoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton9)
                     .addComponent(jButton10))
-                .addContainerGap(316, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         Main.add(Laberinto, "Laberinto");
@@ -814,10 +828,33 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private void jButton9MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseReleased
         JFileChooser fc = new JFileChooser("./");
         fc.setDialogTitle("Seleccione un archivo con el laberinto.");
-        FileNameExtensionFilter fe = new FileNameExtensionFilter("Archivo de texto. (.txt)", ".txt");
+        FileNameExtensionFilter fe = new FileNameExtensionFilter("Archivo de texto. (.txt)", "txt");
         fc.setFileFilter(fe);
         fc.showOpenDialog(null);
         f = fc.getSelectedFile();
+        if (f != null) {
+            int x = 0;
+            int y = 0;
+            try {
+                Scanner texto = new Scanner(f);
+                while (texto.hasNext()) {
+                    y++;
+                    x = texto.nextLine().length();
+                }
+                texto.close();
+                laberinto = new char[y][x];
+                Scanner texto2 = new Scanner(f);
+                for (int i = 0; i < y; i++) {
+                    String linea = texto2.next();
+                    for (int j = 0; j < x; j++) {
+                        laberinto[i][j] = linea.charAt(j);
+                    }
+                }
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Prueba.class.getName()).log(Level.SEVERE, null, ex);
+           }
+           laberintotext.setText(printMatriz(laberinto));
+        }
     }//GEN-LAST:event_jButton9MouseReleased
 
     private void TFrespuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFrespuestaActionPerformed
@@ -972,36 +1009,14 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         if (f != null) {
-            char[][] laberinto = null;
-            int x = 0;
-            int y = 0;
-            try {
-                Scanner texto = new Scanner(f);
-                while (texto.hasNext()) {
-                    y++;
-                    x = texto.nextLine().length();
-                }
-                texto.close();
-                laberinto = new char[y][x];
-                Scanner texto2 = new Scanner(f);
-                for (int i = 0; i < y; i++) {
-                    String linea = texto2.next();
-                    for (int j = 0; j < x; j++) {
-                        laberinto[i][j] = linea.charAt(j);
-                    }
-                }
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(Prueba.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
             int[] coordenadas = entrada(laberinto);
             laberinto[coordenadas[0]][coordenadas[1]] = '+';
             LinkedStack backtracking = salida(laberinto, coordenadas[0], coordenadas[1]);
             while (!backtracking.isEmpty()) {
                 Laberinto maze = (Laberinto) backtracking.pop();
-                laberinto[maze.getX()][maze.getY()] = '@';
+                laberinto[maze.getX()][maze.getY()] = '#';
             }
-            printMatriz(laberinto);
+            laberintotext.setText(printMatriz(laberinto));
         }
     }//GEN-LAST:event_jButton10ActionPerformed
 
@@ -1148,14 +1163,18 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         return coordenadas;
     }
 
-    public static void printMatriz(char[][] laberinto) {
+    public static String printMatriz(char[][] laberinto) {
+        String string = "";
         for (int i = 0; i < laberinto.length; i++) {
             for (int j = 0; j < laberinto[1].length; j++) {
-                System.out.print("[" + laberinto[i][j] + "]");
+//                if (laberinto[i][j]=='+') {
+//                    laberinto[i][j]='0';
+//                }
+                string += " [" + laberinto[i][j] + "] ";
             }
-            System.out.println();
+            string += "\n";
         }
-        System.out.println("");
+        return string;
     }
 
     public static LinkedStack salida(char[][] laberinto, int x, int y) {
@@ -1410,6 +1429,8 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTextArea laberintotext;
     private javax.swing.JButton mas;
     private javax.swing.JButton menos;
     private javax.swing.JButton multiplicar;
@@ -1426,6 +1447,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JButton uno;
     // End of variables declaration//GEN-END:variables
     File f = null;
+    char[][] laberinto = null;
     static Scanner sc = new Scanner(System.in);
     static Binarynode raiz;
     static Treenode raiz2;
