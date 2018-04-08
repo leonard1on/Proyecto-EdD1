@@ -959,6 +959,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
                     }
                 }
             } catch (FileNotFoundException ex) {
+                Logger.getLogger(ProyectoEdD1.class.getName()).log(Level.SEVERE, null, ex);
             }
             laberintotext.setText(printMatriz(laberinto));
         }
