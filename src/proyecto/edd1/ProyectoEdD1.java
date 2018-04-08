@@ -13,12 +13,18 @@ import java.util.Collections;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.paint.Color;
+import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTree;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import org.graphstream.graph.Edge;
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.implementations.SingleGraph;
+import org.graphstream.ui.view.Viewer;
 
 /**
  *
@@ -93,6 +99,16 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         cargararchivo = new javax.swing.JButton();
         Bicoloreable = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        NodoBoton = new javax.swing.JButton();
+        ViewerBoton = new javax.swing.JButton();
+        AristaBoton = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        BicoloreableTf = new javax.swing.JTextField();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        Listnodo = new javax.swing.JList<>();
+        NombreId = new javax.swing.JTextField();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        Listnodo2 = new javax.swing.JList<>();
         Arbol = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         Origenes = new javax.swing.JPanel();
@@ -576,21 +592,108 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
 
         jLabel6.setText("Bicoloreable");
 
+        NodoBoton.setText("Agregar Nodos");
+        NodoBoton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                NodoBotonMouseReleased(evt);
+            }
+        });
+
+        ViewerBoton.setText("Mostrar Grafo");
+        ViewerBoton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                ViewerBotonMouseReleased(evt);
+            }
+        });
+
+        AristaBoton.setText("Agregar Arista");
+        AristaBoton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                AristaBotonMouseReleased(evt);
+            }
+        });
+
+        jButton15.setText("Comprobar Grafo Bicoloreable");
+        jButton15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton15MouseReleased(evt);
+            }
+        });
+
+        BicoloreableTf.setEditable(false);
+        BicoloreableTf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BicoloreableTfActionPerformed(evt);
+            }
+        });
+
+        Listnodo.setModel(new DefaultListModel());
+        jScrollPane6.setViewportView(Listnodo);
+
+        Listnodo2.setModel(new DefaultListModel());
+        jScrollPane7.setViewportView(Listnodo2);
+
         javax.swing.GroupLayout BicoloreableLayout = new javax.swing.GroupLayout(Bicoloreable);
         Bicoloreable.setLayout(BicoloreableLayout);
         BicoloreableLayout.setHorizontalGroup(
             BicoloreableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BicoloreableLayout.createSequentialGroup()
-                .addGap(234, 234, 234)
-                .addComponent(jLabel6)
-                .addContainerGap(278, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addGroup(BicoloreableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(BicoloreableLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(BicoloreableLayout.createSequentialGroup()
+                        .addGroup(BicoloreableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(BicoloreableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(NodoBoton, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                                .addComponent(AristaBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ViewerBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(NombreId, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(41, 41, 41)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BicoloreableLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(BicoloreableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BicoloreableLayout.createSequentialGroup()
+                        .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(114, 114, 114))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BicoloreableLayout.createSequentialGroup()
+                        .addComponent(BicoloreableTf, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(131, 131, 131))))
         );
+
+        BicoloreableLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {AristaBoton, NodoBoton, ViewerBoton});
+
         BicoloreableLayout.setVerticalGroup(
             BicoloreableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BicoloreableLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(21, 21, 21)
                 .addComponent(jLabel6)
-                .addContainerGap(321, Short.MAX_VALUE))
+                .addGroup(BicoloreableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BicoloreableLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(NodoBoton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(NombreId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(AristaBoton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ViewerBoton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                        .addComponent(jButton15)
+                        .addGap(18, 18, 18)
+                        .addComponent(BicoloreableTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28))
+                    .addGroup(BicoloreableLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(BicoloreableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         Main.add(Bicoloreable, "Bicoloreable");
@@ -798,6 +901,8 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         CardLayout card = (CardLayout) Main.getLayout();
         card.show(Main, "Bicoloreable");
+        grafo = new SingleGraph("grafo");
+        grafo.addAttribute("ui.stylesheet", "node{size:50px; text-alignment:above; fill-mode: image-scaled; fill-image: url('.\\kn.png');} node.red { fill-mode: image-scaled; fill-image: url('.\\kr.png');} node.blue{fill-mode: image-scaled; fill-image: url('.\\kb.png');}");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -852,8 +957,8 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
                 }
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(Prueba.class.getName()).log(Level.SEVERE, null, ex);
-           }
-           laberintotext.setText(printMatriz(laberinto));
+            }
+            laberintotext.setText(printMatriz(laberinto));
         }
     }//GEN-LAST:event_jButton9MouseReleased
 
@@ -1097,6 +1202,71 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         m.reload((javax.swing.tree.TreeNode) m.getRoot());
     }//GEN-LAST:event_jButton11ActionPerformed
 
+    private void NodoBotonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NodoBotonMouseReleased
+        // TODO add your handling code here:
+
+//        grafo.addEdge("AB", "A", "B");
+//        grafo.addEdge("BC", "B", "C");
+//        grafo.addEdge("CF", "C", "F");
+//        grafo.addEdge("FD", "F", "D");
+//        grafo.addEdge("FI", "F", "I");
+//        grafo.addEdge("IH", "I", "H");
+//        grafo.addEdge("HG", "H", "G");
+//        grafo.addEdge("GF", "G", "F");
+//        grafo.addEdge("DB", "D", "B");
+//        grafo.addEdge("DE", "D", "E");
+//        grafo.addEdge("EA", "E", "A");
+        String text = NombreId.getText();
+        grafo.addNode(text);
+        DefaultListModel lista = (DefaultListModel) Listnodo.getModel();
+        lista.addElement(text);
+        Listnodo.setModel(lista);
+        Listnodo2.setModel(lista);
+        NombreId.setText("");
+    }//GEN-LAST:event_NodoBotonMouseReleased
+
+    private void ViewerBotonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ViewerBotonMouseReleased
+        // TODO add your handling code here:
+        if (grafo.getNodeCount() > 0) {
+            for (org.graphstream.graph.Node node : grafo) {
+                node.addAttribute("ui.label", node.getId());
+            }
+            Viewer viewer = grafo.display();
+            viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
+        }
+    }//GEN-LAST:event_ViewerBotonMouseReleased
+
+    private void BicoloreableTfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BicoloreableTfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BicoloreableTfActionPerformed
+
+    private void AristaBotonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AristaBotonMouseReleased
+        // TODO add your handling code here:
+        if (!Listnodo.getSelectedValue().equals(Listnodo2.getSelectedValue())) {
+            String id1 = Listnodo.getSelectedValue();
+            String id2 = Listnodo2.getSelectedValue();
+            grafo.addEdge(id1 + id2, id1, id2);
+            JOptionPane.showMessageDialog(this, "Arista entre " +id1 + " y "+ id2 + " creada exitosamente!");
+        }
+
+    }//GEN-LAST:event_AristaBotonMouseReleased
+
+    private void jButton15MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseReleased
+        // TODO add your handling code here:
+        grafo.addAttribute("ui.stylesheet", "node{size:50px; text-alignment:above;} node.red { fill-mode: image-scaled; fill-image: url('.\\kr.png');} node.blue{fill-mode: image-scaled; fill-image: url('.\\kb.png');}");
+        if (grafo.getNodeCount() > 0) {
+            for (org.graphstream.graph.Node nodo : grafo) {
+                nodo.setAttribute("No visitado", true);
+                nodo.setAttribute("Color", "Ninguno");
+            }
+            if (bicoloreable(grafo.getNode(0), true, "Azul")) {
+                BicoloreableTf.setText("El Grafo es Bicoloreable");
+            } else {
+                BicoloreableTf.setText("El Grafo no es Bicoloreable");
+            }
+        }
+    }//GEN-LAST:event_jButton15MouseReleased
+
     /**
      * @param args the command line arguments
      */
@@ -1106,6 +1276,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -1130,6 +1301,30 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
                 new ProyectoEdD1().setVisible(true);
             }
         });
+    }
+
+    public static boolean bicoloreable(org.graphstream.graph.Node nodo, boolean bicolor, String color) {
+        if (nodo.getAttribute("No visitado")) {
+            nodo.setAttribute("No visitado", false);
+            if (nodo.getAttribute("Color").equals("Ninguno")) {
+                nodo.setAttribute("Color", color);
+            }
+            for (Edge edge : nodo) {
+                if (edge.getOpposite(nodo).getAttribute("Color").equals(nodo.getAttribute("Color"))) {
+                    bicolor = false;
+                }
+                if (color.equals("Azul")) {
+                    bicolor = bicoloreable(edge.getOpposite(nodo), bicolor, "Rojo");
+                    nodo.setAttribute("ui.class", "blue");
+
+                } else {
+                    bicolor = bicoloreable(edge.getOpposite(nodo), bicolor, "Azul");
+                    nodo.setAttribute("ui.class", "red");
+
+                }
+            }
+        }
+        return bicolor;
     }
 
     public static int[] entrada(char[][] matriz) {
@@ -1371,26 +1566,32 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
             ((Empleado) root.getData()).setNota(cont / root.children.size());
         }
 
-        System.out.println(((Empleado) root.getData()).getNombre() + " - " + ((Empleado) root.getData()).getNota());
-
         if (root.RightSibling() != null) {
             posterior(root.RightSibling());
         }
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Arbol;
+    private javax.swing.JButton AristaBoton;
     private javax.swing.JPanel Bicoloreable;
+    private javax.swing.JTextField BicoloreableTf;
     private javax.swing.JPanel Compresiones;
     private javax.swing.JButton DEL;
     private javax.swing.JTree Empresa;
     private javax.swing.JPanel Evaluacion;
     private javax.swing.JPanel Expresiones;
     private javax.swing.JPanel Laberinto;
+    private javax.swing.JList<String> Listnodo;
+    private javax.swing.JList<String> Listnodo2;
     private javax.swing.JPanel Main;
+    private javax.swing.JButton NodoBoton;
+    private javax.swing.JTextField NombreId;
     private javax.swing.JPanel Origen;
     private javax.swing.JPanel Origenes;
     private javax.swing.JTextField TFrespuesta;
+    private javax.swing.JButton ViewerBoton;
     private javax.swing.JButton cargararchivo;
     private javax.swing.JButton cero;
     private javax.swing.JButton cinco;
@@ -1406,6 +1607,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1430,6 +1632,8 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTextArea laberintotext;
     private javax.swing.JButton mas;
     private javax.swing.JButton menos;
@@ -1451,4 +1655,5 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     static Scanner sc = new Scanner(System.in);
     static Binarynode raiz;
     static Treenode raiz2;
+    Graph grafo = new SingleGraph("Grafo", false, true);
 }
