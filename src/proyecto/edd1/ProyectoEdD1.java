@@ -901,7 +901,10 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         CardLayout card = (CardLayout) Main.getLayout();
         card.show(Main, "Bicoloreable");
+        Listnodo.setModel(new DefaultListModel());
+        Listnodo2.setModel(new DefaultListModel());
         grafo = new SingleGraph("grafo");
+
         grafo.addAttribute("ui.stylesheet", "node{size:50px; text-alignment:above; fill-mode: image-scaled; fill-image: url('.\\kn.png');} node.red { fill-mode: image-scaled; fill-image: url('.\\kr.png');} node.blue{fill-mode: image-scaled; fill-image: url('.\\kb.png');}");
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -956,7 +959,6 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
                     }
                 }
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(Prueba.class.getName()).log(Level.SEVERE, null, ex);
             }
             laberintotext.setText(printMatriz(laberinto));
         }
@@ -1109,6 +1111,9 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
                 }
             }
             TFrespuesta.setText("" + numeros.get(0));
+            if (TFrespuesta.getText().equals("null")) {
+                TFrespuesta.setText("Math Error");
+            }
         }
     }//GEN-LAST:event_igualActionPerformed
 
@@ -1205,24 +1210,15 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private void NodoBotonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NodoBotonMouseReleased
         // TODO add your handling code here:
 
-//        grafo.addEdge("AB", "A", "B");
-//        grafo.addEdge("BC", "B", "C");
-//        grafo.addEdge("CF", "C", "F");
-//        grafo.addEdge("FD", "F", "D");
-//        grafo.addEdge("FI", "F", "I");
-//        grafo.addEdge("IH", "I", "H");
-//        grafo.addEdge("HG", "H", "G");
-//        grafo.addEdge("GF", "G", "F");
-//        grafo.addEdge("DB", "D", "B");
-//        grafo.addEdge("DE", "D", "E");
-//        grafo.addEdge("EA", "E", "A");
-        String text = NombreId.getText();
-        grafo.addNode(text);
-        DefaultListModel lista = (DefaultListModel) Listnodo.getModel();
-        lista.addElement(text);
-        Listnodo.setModel(lista);
-        Listnodo2.setModel(lista);
-        NombreId.setText("");
+        if (!NombreId.getText().isEmpty()) {
+            String text = NombreId.getText();
+            grafo.addNode(text);
+            DefaultListModel lista = (DefaultListModel) Listnodo.getModel();
+            lista.addElement(text);
+            Listnodo.setModel(lista);
+            Listnodo2.setModel(lista);
+            NombreId.setText("");
+        }
     }//GEN-LAST:event_NodoBotonMouseReleased
 
     private void ViewerBotonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ViewerBotonMouseReleased
@@ -1241,12 +1237,20 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     }//GEN-LAST:event_BicoloreableTfActionPerformed
 
     private void AristaBotonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AristaBotonMouseReleased
-        // TODO add your handling code here:
-        if (!Listnodo.getSelectedValue().equals(Listnodo2.getSelectedValue())) {
-            String id1 = Listnodo.getSelectedValue();
-            String id2 = Listnodo2.getSelectedValue();
-            grafo.addEdge(id1 + id2, id1, id2);
-            JOptionPane.showMessageDialog(this, "Arista entre " +id1 + " y "+ id2 + " creada exitosamente!");
+        // TODO add your handling code here
+        if (Listnodo.getSelectedValue() != null && Listnodo2.getSelectedValue() != null) {
+            boolean entrar = true;
+            for (Edge edge : grafo.getEdgeSet()) {
+                if (edge.getId().equals(Listnodo2.getSelectedValue() + Listnodo.getSelectedValue()) || edge.getId().equals(Listnodo.getSelectedValue() + Listnodo2.getSelectedValue())) {
+                    entrar = false;
+                }
+            }
+            if (!Listnodo.getSelectedValue().equals(Listnodo2.getSelectedValue()) && entrar) {
+                String id1 = Listnodo.getSelectedValue();
+                String id2 = Listnodo2.getSelectedValue();
+                grafo.addEdge(id1 + id2, id1, id2);
+                JOptionPane.showMessageDialog(this, "Arista entre " + id1 + " y " + id2 + " creada exitosamente!");
+            }
         }
 
     }//GEN-LAST:event_AristaBotonMouseReleased
