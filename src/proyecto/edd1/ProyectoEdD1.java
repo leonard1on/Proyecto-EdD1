@@ -111,6 +111,16 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         Listnodo2 = new javax.swing.JList<>();
         Arbol = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        NodoBoton1 = new javax.swing.JButton();
+        ViewerBoton1 = new javax.swing.JButton();
+        AristaBoton1 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        Listnodo1 = new javax.swing.JList<>();
+        NombreId1 = new javax.swing.JTextField();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        Listnodo3 = new javax.swing.JList<>();
+        jSpinner1 = new javax.swing.JSpinner();
         Origenes = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         Origen = new javax.swing.JPanel();
@@ -700,21 +710,101 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
 
         jLabel7.setText("Arbol");
 
+        NodoBoton1.setText("Agregar Nodos");
+        NodoBoton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                NodoBoton1MouseReleased(evt);
+            }
+        });
+        NodoBoton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NodoBoton1ActionPerformed(evt);
+            }
+        });
+
+        ViewerBoton1.setText("Mostrar Grafo");
+        ViewerBoton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                ViewerBoton1MouseReleased(evt);
+            }
+        });
+
+        AristaBoton1.setText("Agregar Arista");
+        AristaBoton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                AristaBoton1MouseReleased(evt);
+            }
+        });
+        AristaBoton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AristaBoton1ActionPerformed(evt);
+            }
+        });
+
+        jButton16.setText("Crear Arbol de Expansion Miinima");
+        jButton16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton16MouseReleased(evt);
+            }
+        });
+
+        Listnodo1.setModel(new DefaultListModel());
+        jScrollPane8.setViewportView(Listnodo1);
+
+        Listnodo3.setModel(new DefaultListModel());
+        jScrollPane9.setViewportView(Listnodo3);
+
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+
         javax.swing.GroupLayout ArbolLayout = new javax.swing.GroupLayout(Arbol);
         Arbol.setLayout(ArbolLayout);
         ArbolLayout.setHorizontalGroup(
             ArbolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ArbolLayout.createSequentialGroup()
-                .addGap(230, 230, 230)
-                .addComponent(jLabel7)
-                .addContainerGap(323, Short.MAX_VALUE))
+                .addGroup(ArbolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ArbolLayout.createSequentialGroup()
+                        .addGap(233, 233, 233)
+                        .addComponent(jLabel7))
+                    .addGroup(ArbolLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(ArbolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(NombreId1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ArbolLayout.createSequentialGroup()
+                                .addGroup(ArbolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(ViewerBoton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(NodoBoton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(AristaBoton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton16))
+                        .addGap(22, 22, 22)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         ArbolLayout.setVerticalGroup(
             ArbolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ArbolLayout.createSequentialGroup()
-                .addGap(125, 125, 125)
+                .addContainerGap()
                 .addComponent(jLabel7)
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addGroup(ArbolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(ArbolLayout.createSequentialGroup()
+                        .addComponent(NodoBoton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(NombreId1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(ArbolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(AristaBoton1)
+                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addComponent(ViewerBoton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton16))
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         Main.add(Arbol, "Arbol");
@@ -903,23 +993,29 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         card.show(Main, "Bicoloreable");
         Listnodo.setModel(new DefaultListModel());
         Listnodo2.setModel(new DefaultListModel());
-        grafo = new SingleGraph("grafo");
+        grafo.clear();
         grafo.addAttribute("ui.stylesheet", "node{size:50px; text-alignment:above; fill-mode: image-scaled; fill-image: url('.\\kn.png');} node.red { fill-mode: image-scaled; fill-image: url('.\\kr.png');} node.blue{fill-mode: image-scaled; fill-image: url('.\\kb.png');}");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         CardLayout card = (CardLayout) Main.getLayout();
         card.show(Main, "Origenes");
+        grafo.clear();
+
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         CardLayout card = (CardLayout) Main.getLayout();
         card.show(Main, "Origen");
+        grafo.clear();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         CardLayout card = (CardLayout) Main.getLayout();
         card.show(Main, "Arbol");
+        grafo.clear();
+        arbol.clear();
+        grafo.addAttribute("ui.stylesheet", "edge{text-alignment:above;} node{size:50px; text-alignment:above; fill-mode: image-scaled; fill-image: url('.\\ka.png');}");
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -1225,7 +1321,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
                 Listnodo.setModel(lista);
                 Listnodo2.setModel(lista);
                 NombreId.setText("");
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(this, "Un nodo en el grafo ya usa ese Id.");
                 NombreId.setText("");
             }
@@ -1263,7 +1359,6 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Arista entre " + id1 + " y " + id2 + " creada exitosamente!");
             }
         }
-
     }//GEN-LAST:event_AristaBotonMouseReleased
 
     private void jButton15MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseReleased
@@ -1280,6 +1375,97 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton15MouseReleased
+
+    private void NodoBoton1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NodoBoton1MouseReleased
+        if (!NombreId1.getText().isEmpty()) {
+            boolean repetido = true;
+            for (org.graphstream.graph.Node node : grafo) {
+                if (node.getId().equals(NombreId1.getText())) {
+                    repetido = false;
+                }
+            }
+            if (repetido) {
+                String text = NombreId1.getText();
+                grafo.addNode(text);
+                DefaultListModel lista = (DefaultListModel) Listnodo.getModel();
+                lista.addElement(text);
+                Listnodo1.setModel(lista);
+                Listnodo3.setModel(lista);
+                NombreId1.setText("");
+            } else {
+                JOptionPane.showMessageDialog(this, "Un nodo en el grafo ya usa ese Id.");
+                NombreId1.setText("");
+            }
+        }
+    }//GEN-LAST:event_NodoBoton1MouseReleased
+
+    private void ViewerBoton1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ViewerBoton1MouseReleased
+        // TODO add your handling code here:
+        if (grafo.getNodeCount() > 0) {
+            for (org.graphstream.graph.Node node : grafo) {
+                node.addAttribute("ui.label", node.getId());
+                for (Edge edge : node) {
+                    edge.addAttribute("ui.label", edge.getAttribute("Peso") + "");
+                }
+            }
+            Viewer viewer = grafo.display();
+            viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
+        }
+    }//GEN-LAST:event_ViewerBoton1MouseReleased
+
+    private void AristaBoton1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AristaBoton1MouseReleased
+        if (Listnodo1.getSelectedValue() != null && Listnodo3.getSelectedValue() != null) {
+            boolean entrar = true;
+            for (Edge edge : grafo.getEdgeSet()) {
+                if (edge.getId().equals(Listnodo3.getSelectedValue() + Listnodo1.getSelectedValue()) || edge.getId().equals(Listnodo1.getSelectedValue() + Listnodo3.getSelectedValue())) {
+                    entrar = false;
+                }
+            }
+            if (!Listnodo1.getSelectedValue().equals(Listnodo3.getSelectedValue()) && entrar) {
+                String id1 = Listnodo1.getSelectedValue();
+                String id2 = Listnodo3.getSelectedValue();
+                grafo.addEdge(id1 + id2, id1, id2);
+                grafo.getEdge(id1 + id2).addAttribute("Peso", jSpinner1.getValue());
+                JOptionPane.showMessageDialog(this, "Arista entre " + id1 + " y " + id2 + " con un peso de " + jSpinner1.getValue() + " creada exitosamente!");
+            }
+        }
+    }//GEN-LAST:event_AristaBoton1MouseReleased
+
+    private void jButton16MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseReleased
+        arbol.clear();
+        arbol.addAttribute("ui.stylesheet", "edge{text-alignment:above;} node{size:50px; text-alignment:above; fill-mode: image-scaled; fill-image: url('.\\kv.png');}");
+        ArrayList<Arista> aristas = new ArrayList<>();
+        for (org.graphstream.graph.Node node : grafo) {
+            arbol.addNode(node.getId());
+            arbol.getNode(node.getIndex()).setAttribute("ui.label", node.getId());
+            arbol.getNode(node.getIndex()).setAttribute("No visitado", true);
+        }
+        for (Edge edge : grafo.getEachEdge()) {
+            aristas.add(new Arista(edge.getId(), edge.getAttribute("Peso")));
+        }
+        Collections.sort(aristas, Arista.Comparador);
+        for (Arista arista : aristas) {
+            if (ciclo(true, arbol.getNode(grafo.getEdge(arista.id).getNode0().getId()), arbol.getNode(grafo.getEdge(arista.id).getNode1().getId()))) {
+                arbol.addEdge(arista.id, arbol.getNode(grafo.getEdge(arista.id).getNode0().getId()).getId(), arbol.getNode(grafo.getEdge(arista.id).getNode1().getId()).getId());
+            }
+            for (org.graphstream.graph.Node node : arbol) {
+                arbol.getNode(node.getIndex()).setAttribute("No visitado", true);
+            }
+        }
+        for (Edge edge : arbol.getEachEdge()) {
+            edge.setAttribute("ui.label", grafo.getEdge(edge.getId()).getAttribute("Peso") + "");
+        }
+        Viewer viewer = arbol.display();
+        viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
+    }//GEN-LAST:event_jButton16MouseReleased
+
+    private void AristaBoton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AristaBoton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AristaBoton1ActionPerformed
+
+    private void NodoBoton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NodoBoton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NodoBoton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1315,6 +1501,20 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
                 new ProyectoEdD1().setVisible(true);
             }
         });
+    }
+
+    public boolean ciclo(boolean conecta, org.graphstream.graph.Node a, org.graphstream.graph.Node b) {
+        b.setAttribute("No visitado", false);
+        for (Edge edge : b) {
+            if (a == b || a == edge.getOpposite(b)) {
+                conecta = false;
+            } else {
+                if (edge.getOpposite(b).getAttribute("No visitado")) {
+                    conecta = ciclo(conecta, a, edge.getOpposite(b));
+                }
+            }
+        }
+        return conecta;
     }
 
     public static boolean bicoloreable(org.graphstream.graph.Node nodo, boolean bicolor, String color) {
@@ -1589,6 +1789,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Arbol;
     private javax.swing.JButton AristaBoton;
+    private javax.swing.JButton AristaBoton1;
     private javax.swing.JPanel Bicoloreable;
     private javax.swing.JTextField BicoloreableTf;
     private javax.swing.JPanel Compresiones;
@@ -1598,14 +1799,19 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JPanel Expresiones;
     private javax.swing.JPanel Laberinto;
     private javax.swing.JList<String> Listnodo;
+    private javax.swing.JList<String> Listnodo1;
     private javax.swing.JList<String> Listnodo2;
+    private javax.swing.JList<String> Listnodo3;
     private javax.swing.JPanel Main;
     private javax.swing.JButton NodoBoton;
+    private javax.swing.JButton NodoBoton1;
     private javax.swing.JTextField NombreId;
+    private javax.swing.JTextField NombreId1;
     private javax.swing.JPanel Origen;
     private javax.swing.JPanel Origenes;
     private javax.swing.JTextField TFrespuesta;
     private javax.swing.JButton ViewerBoton;
+    private javax.swing.JButton ViewerBoton1;
     private javax.swing.JButton cargararchivo;
     private javax.swing.JButton cero;
     private javax.swing.JButton cinco;
@@ -1622,6 +1828,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1648,6 +1855,9 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTextArea laberintotext;
     private javax.swing.JButton mas;
     private javax.swing.JButton menos;
@@ -1670,4 +1880,5 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     static Binarynode raiz;
     static Treenode raiz2;
     Graph grafo = new SingleGraph("Grafo", false, true);
+    Graph arbol = new SingleGraph("Grafo", false, true);
 }

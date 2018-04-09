@@ -61,7 +61,7 @@ public class ArbolMinimo {
         arbol.display();
     }
 
-    public static boolean ciclo(boolean conecta, org.graphstream.graph.Node a, org.graphstream.graph.Node b) {
+    public boolean ciclo(boolean conecta, org.graphstream.graph.Node a, org.graphstream.graph.Node b) {
         b.setAttribute("No visitado", false);
         for (Edge edge : b) {
             if (a == b || a == edge.getOpposite(b)) {
