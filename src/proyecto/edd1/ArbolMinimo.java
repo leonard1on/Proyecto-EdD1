@@ -7,7 +7,6 @@ package proyecto.edd1;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Random;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;

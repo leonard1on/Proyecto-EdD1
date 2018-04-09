@@ -1006,7 +1006,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Laberinto Backtracking"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor Por defecto"/>
         </Property>
         <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
       </Properties>
@@ -1018,7 +1018,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Evaluaci&#xf3;n por Desempe&#xf1;o"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor Por defecto"/>
         </Property>
         <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
       </Properties>
@@ -1030,7 +1030,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Expresiones Matem&#xe1;ticas "/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor Por defecto"/>
         </Property>
         <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
       </Properties>
@@ -1042,7 +1042,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Compresi&#xf3;n de Archivos"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor Por defecto"/>
         </Property>
         <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
       </Properties>
@@ -1054,7 +1054,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Grafo Bi-Coloreable"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor Por defecto"/>
         </Property>
         <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
       </Properties>
@@ -1066,7 +1066,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Or&#xed;genes/Todos los Destinos"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor Por defecto"/>
         </Property>
         <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
       </Properties>
@@ -1083,7 +1083,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Origen/Todos los Destinos"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor Por defecto"/>
         </Property>
         <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
       </Properties>
@@ -1095,7 +1095,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xc1;rboles de Expansi&#xf3;n M&#xed;nima"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor Por defecto"/>
         </Property>
         <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
       </Properties>

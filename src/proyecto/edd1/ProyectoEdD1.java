@@ -904,7 +904,6 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         Listnodo.setModel(new DefaultListModel());
         Listnodo2.setModel(new DefaultListModel());
         grafo = new SingleGraph("grafo");
-
         grafo.addAttribute("ui.stylesheet", "node{size:50px; text-alignment:above; fill-mode: image-scaled; fill-image: url('.\\kn.png');} node.red { fill-mode: image-scaled; fill-image: url('.\\kr.png');} node.blue{fill-mode: image-scaled; fill-image: url('.\\kb.png');}");
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -1212,13 +1211,24 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         if (!NombreId.getText().isEmpty()) {
-            String text = NombreId.getText();
-            grafo.addNode(text);
-            DefaultListModel lista = (DefaultListModel) Listnodo.getModel();
-            lista.addElement(text);
-            Listnodo.setModel(lista);
-            Listnodo2.setModel(lista);
-            NombreId.setText("");
+            boolean repetido = true;
+            for (org.graphstream.graph.Node node : grafo) {
+                if (node.getId().equals(NombreId.getText())) {
+                    repetido = false;
+                }
+            }
+            if (repetido) {
+                String text = NombreId.getText();
+                grafo.addNode(text);
+                DefaultListModel lista = (DefaultListModel) Listnodo.getModel();
+                lista.addElement(text);
+                Listnodo.setModel(lista);
+                Listnodo2.setModel(lista);
+                NombreId.setText("");
+            }else{
+                JOptionPane.showMessageDialog(this, "Un nodo en el grafo ya usa ese Id.");
+                NombreId.setText("");
+            }
         }
     }//GEN-LAST:event_NodoBotonMouseReleased
 
@@ -1258,7 +1268,6 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
 
     private void jButton15MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseReleased
         // TODO add your handling code here:
-        grafo.addAttribute("ui.stylesheet", "node{size:50px; text-alignment:above;} node.red { fill-mode: image-scaled; fill-image: url('.\\kr.png');} node.blue{fill-mode: image-scaled; fill-image: url('.\\kb.png');}");
         if (grafo.getNodeCount() > 0) {
             for (org.graphstream.graph.Node nodo : grafo) {
                 nodo.setAttribute("No visitado", true);
