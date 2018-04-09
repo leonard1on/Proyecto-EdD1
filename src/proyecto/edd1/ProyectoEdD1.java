@@ -14,6 +14,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.paint.Color;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -125,6 +126,21 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         Origen = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
+        NodoBoton2 = new javax.swing.JButton();
+        NombreId2 = new javax.swing.JTextField();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        Listnodo4 = new javax.swing.JList<>();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        Listnodo5 = new javax.swing.JList<>();
+        AristaBoton2 = new javax.swing.JButton();
+        jSpinner2 = new javax.swing.JSpinner();
+        ViewerBoton2 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jButton12 = new javax.swing.JButton();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        ListaDijkstra = new javax.swing.JList<>();
+        Kentucky = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -834,22 +850,136 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
 
         jLabel9.setText("Origen");
 
+        NodoBoton2.setText("Agregar Nodos");
+        NodoBoton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                NodoBoton2MouseReleased(evt);
+            }
+        });
+        NodoBoton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NodoBoton2ActionPerformed(evt);
+            }
+        });
+
+        Listnodo4.setModel(new DefaultListModel());
+        jScrollPane10.setViewportView(Listnodo4);
+
+        Listnodo5.setModel(new DefaultListModel());
+        jScrollPane11.setViewportView(Listnodo5);
+
+        AristaBoton2.setText("Agregar Arista");
+        AristaBoton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                AristaBoton2MouseReleased(evt);
+            }
+        });
+        AristaBoton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AristaBoton2ActionPerformed(evt);
+            }
+        });
+
+        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+
+        ViewerBoton2.setText("Mostrar Grafo");
+        ViewerBoton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                ViewerBoton2MouseReleased(evt);
+            }
+        });
+
+        jLabel11.setText("Origen");
+
+        jLabel12.setText("Destino");
+
+        jButton12.setText("Encontrar Todos los Destinos");
+        jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton12MouseReleased(evt);
+            }
+        });
+
+        ListaDijkstra.setModel(new DefaultListModel());
+        jScrollPane12.setViewportView(ListaDijkstra);
+
         javax.swing.GroupLayout OrigenLayout = new javax.swing.GroupLayout(Origen);
         Origen.setLayout(OrigenLayout);
         OrigenLayout.setHorizontalGroup(
             OrigenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(OrigenLayout.createSequentialGroup()
-                .addGap(255, 255, 255)
-                .addComponent(jLabel9)
-                .addContainerGap(290, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OrigenLayout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addGroup(OrigenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OrigenLayout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(121, 121, 121)
+                        .addComponent(jLabel12)
+                        .addGap(69, 69, 69))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OrigenLayout.createSequentialGroup()
+                        .addGroup(OrigenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(OrigenLayout.createSequentialGroup()
+                                .addGroup(OrigenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton12)
+                                    .addComponent(NodoBoton2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(OrigenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(NombreId2, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(OrigenLayout.createSequentialGroup()
+                                            .addGroup(OrigenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabel9)
+                                                .addComponent(AristaBoton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(ViewerBoton2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Kentucky, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(21, 21, 21)
+                                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(21, 21, 21))))
         );
+
+        OrigenLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {NodoBoton2, NombreId2, ViewerBoton2, jButton12});
+
         OrigenLayout.setVerticalGroup(
             OrigenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(OrigenLayout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addComponent(jLabel9)
-                .addContainerGap(244, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(OrigenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(OrigenLayout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGroup(OrigenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(OrigenLayout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addGroup(OrigenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel12))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(OrigenLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(NodoBoton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(NombreId2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(OrigenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(AristaBoton2)
+                                    .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ViewerBoton2)
+                                .addGap(1, 1, 1)
+                                .addComponent(jButton12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Kentucky, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(OrigenLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
+
+        OrigenLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jScrollPane10, jScrollPane11});
 
         Main.add(Origen, "Origen");
 
@@ -912,6 +1042,11 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         jButton7.setText("Origen/Todos los Destinos");
         jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton7.setVerifyInputWhenFocusTarget(false);
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton7MouseReleased(evt);
+            }
+        });
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -1010,6 +1145,11 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         CardLayout card = (CardLayout) Main.getLayout();
         card.show(Main, "Origen");
         grafo.clear();
+        Listnodo4.setModel(new DefaultListModel());
+        Listnodo5.setModel(new DefaultListModel());
+        Kentucky.setModel(new DefaultComboBoxModel());
+        grafo.clear();
+        grafo.addAttribute("ui.stylesheet", "edge{text-alignment:above;} node{size:50px; text-alignment:above; fill-mode: image-scaled; fill-image: url('.\\kp.png');}");
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -1390,7 +1530,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
                 String text = NombreId1.getText();
                 grafo.addNode(text);
                 grafo.getNode(text).addAttribute("ui.label", grafo.getNode(text).getId());
-                DefaultListModel lista = (DefaultListModel) Listnodo.getModel();
+                DefaultListModel lista = (DefaultListModel) Listnodo1.getModel();
                 lista.addElement(text);
                 Listnodo1.setModel(lista);
                 Listnodo3.setModel(lista);
@@ -1466,6 +1606,101 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NodoBoton1ActionPerformed
 
+    private void NodoBoton2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NodoBoton2MouseReleased
+        // TODO add your handling code here:
+        if (!NombreId2.getText().isEmpty()) {
+            boolean repetido = true;
+            for (org.graphstream.graph.Node node : grafo) {
+                if (node.getId().equals(NombreId2.getText())) {
+                    repetido = false;
+                }
+            }
+            if (repetido) {
+                
+                String text = NombreId2.getText();
+                grafo.addNode(text);
+                grafo.getNode(text).addAttribute("ui.label", grafo.getNode(text).getId());
+                DefaultComboBoxModel box = (DefaultComboBoxModel)Kentucky.getModel();
+                DefaultListModel lista = (DefaultListModel) Listnodo4.getModel();
+                lista.addElement(text);
+                box.addElement(text);
+                Listnodo4.setModel(lista);
+                Listnodo5.setModel(lista);
+                NombreId2.setText("");
+            } else {
+                JOptionPane.showMessageDialog(this, "Un nodo en el grafo ya usa ese Id.");
+                NombreId1.setText("");
+            }
+        }
+    }//GEN-LAST:event_NodoBoton2MouseReleased
+
+    private void NodoBoton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NodoBoton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NodoBoton2ActionPerformed
+
+    private void AristaBoton2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AristaBoton2MouseReleased
+        // TODO add your handling code here:
+        if (Listnodo4.getSelectedValue() != null && Listnodo5.getSelectedValue() != null) {
+            boolean entrar = true;
+            for (Edge edge : grafo.getEdgeSet()) {
+                if (edge.getId().equals(Listnodo5.getSelectedValue() + Listnodo4.getSelectedValue()) || edge.getId().equals(Listnodo4.getSelectedValue() + Listnodo5.getSelectedValue())) {
+                    entrar = false;
+                }
+            }
+            if (!Listnodo4.getSelectedValue().equals(Listnodo5.getSelectedValue()) && entrar) {
+                String id1 = Listnodo4.getSelectedValue();
+                String id2 = Listnodo5.getSelectedValue();
+                grafo.addEdge(id1 + id2, id1, id2, true);
+                grafo.getEdge(id1 + id2).addAttribute("Peso", jSpinner2.getValue());
+                grafo.getEdge(id1 + id2).addAttribute("ui.label", grafo.getEdge(id1 + id2).getAttribute("Peso") + "");
+                JOptionPane.showMessageDialog(this, "Arista entre " + id1 + " y " + id2 + " con un peso de " + jSpinner2.getValue() + " creada exitosamente!");
+                jSpinner2.setValue(1);
+            }
+        }
+    }//GEN-LAST:event_AristaBoton2MouseReleased
+
+    private void AristaBoton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AristaBoton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AristaBoton2ActionPerformed
+
+    private void ViewerBoton2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ViewerBoton2MouseReleased
+        // TODO add your handling code here:
+        if (grafo.getNodeCount() > 0) {
+            Viewer viewer = grafo.display();
+            viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
+        }
+    }//GEN-LAST:event_ViewerBoton2MouseReleased
+
+    private void jButton7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7MouseReleased
+
+    private void jButton12MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseReleased
+        // TODO add your handling code here:
+        
+        grafo.addAttribute("Distancia", 0);
+        Dijkstra(grafo.getNode(Kentucky.getSelectedItem()+""));
+        ListaDijkstra.setModel(new DefaultListModel());
+        DefaultListModel modelo = (DefaultListModel)ListaDijkstra.getModel();
+        for (org.graphstream.graph.Node node : grafo) {
+//            System.out.println("a - " + node.getId() + " = " + node.getAttribute("Distancia"));
+            String cadena = "";
+            org.graphstream.graph.Node temp = node.getAttribute("Previo");
+            if (temp != null) {
+                cadena+= temp.getId() + " - " + node.getId();
+                temp = temp.getAttribute("Previo");
+                while (temp != null) {
+                    cadena=temp.getId() + " - " +cadena;
+                    temp = temp.getAttribute("Previo");
+                }
+            }
+            cadena+="  Distancia: "+ node.getAttribute("Distancia");
+            cadena= "Recorrido de " + Kentucky.getSelectedItem()+" a " + node.getId() + ": "+cadena;
+            modelo.addElement(cadena);
+        }
+        ListaDijkstra.setModel(modelo);
+    }//GEN-LAST:event_jButton12MouseReleased
+
     /**
      * @param args the command line arguments
      */
@@ -1500,6 +1735,48 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
                 new ProyectoEdD1().setVisible(true);
             }
         });
+    }
+
+    public void Dijkstra(org.graphstream.graph.Node source) {
+        ArrayList<org.graphstream.graph.Node> no = new ArrayList();
+        org.graphstream.graph.Node NULL = null;
+
+        for (org.graphstream.graph.Node node : grafo) {
+            node.setAttribute("Distancia", Integer.MAX_VALUE);
+            node.addAttribute("Previo", NULL);
+            no.add(node);
+        }
+
+        source.setAttribute("Distancia", 0);
+
+        while (!no.isEmpty()) {
+            org.graphstream.graph.Node nodomenordistancia = corto(no);
+            no.remove(nodomenordistancia);
+
+            for (Edge edge : nodomenordistancia) {
+                if (edge.getSourceNode() == nodomenordistancia && no.contains(edge.getOpposite(nodomenordistancia))) {
+                    int distanciatemp = (int) nodomenordistancia.getAttribute("Distancia") + (int) edge.getAttribute("Peso");
+                    if (distanciatemp < (int) edge.getOpposite(nodomenordistancia).getAttribute("Distancia")) {
+                        edge.getOpposite(nodomenordistancia).setAttribute("Distancia", distanciatemp);
+                        edge.getOpposite(nodomenordistancia).setAttribute("Previo", nodomenordistancia);
+                    }
+
+                }
+            }
+        }
+
+    }
+
+    public static org.graphstream.graph.Node corto(ArrayList<org.graphstream.graph.Node> no) {
+        int menor = Integer.MAX_VALUE;
+        org.graphstream.graph.Node menornodo = null;
+        for (org.graphstream.graph.Node node : no) {
+            if (menor > (int) node.getAttribute("Distancia")) {
+                menor = node.getAttribute("Distancia");
+                menornodo = node;
+            }
+        }
+        return menornodo;
     }
 
     public boolean ciclo(boolean conecta, org.graphstream.graph.Node a, org.graphstream.graph.Node b) {
@@ -1789,6 +2066,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JPanel Arbol;
     private javax.swing.JButton AristaBoton;
     private javax.swing.JButton AristaBoton1;
+    private javax.swing.JButton AristaBoton2;
     private javax.swing.JPanel Bicoloreable;
     private javax.swing.JTextField BicoloreableTf;
     private javax.swing.JPanel Compresiones;
@@ -1796,21 +2074,28 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JTree Empresa;
     private javax.swing.JPanel Evaluacion;
     private javax.swing.JPanel Expresiones;
+    private javax.swing.JComboBox<String> Kentucky;
     private javax.swing.JPanel Laberinto;
+    private javax.swing.JList<String> ListaDijkstra;
     private javax.swing.JList<String> Listnodo;
     private javax.swing.JList<String> Listnodo1;
     private javax.swing.JList<String> Listnodo2;
     private javax.swing.JList<String> Listnodo3;
+    private javax.swing.JList<String> Listnodo4;
+    private javax.swing.JList<String> Listnodo5;
     private javax.swing.JPanel Main;
     private javax.swing.JButton NodoBoton;
     private javax.swing.JButton NodoBoton1;
+    private javax.swing.JButton NodoBoton2;
     private javax.swing.JTextField NombreId;
     private javax.swing.JTextField NombreId1;
+    private javax.swing.JTextField NombreId2;
     private javax.swing.JPanel Origen;
     private javax.swing.JPanel Origenes;
     private javax.swing.JTextField TFrespuesta;
     private javax.swing.JButton ViewerBoton;
     private javax.swing.JButton ViewerBoton1;
+    private javax.swing.JButton ViewerBoton2;
     private javax.swing.JButton cargararchivo;
     private javax.swing.JButton cero;
     private javax.swing.JButton cinco;
@@ -1826,6 +2111,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
@@ -1838,6 +2124,8 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1848,6 +2136,9 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1857,6 +2148,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jSpinner2;
     private javax.swing.JTextArea laberintotext;
     private javax.swing.JButton mas;
     private javax.swing.JButton menos;
