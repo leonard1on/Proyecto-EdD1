@@ -514,10 +514,12 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
 
         jLabel5.setText("Compresiones");
 
+        textarea2.setEditable(false);
         textarea2.setColumns(20);
         textarea2.setRows(5);
         jScrollPane2.setViewportView(textarea2);
 
+        textarea3.setEditable(false);
         textarea3.setColumns(20);
         textarea3.setRows(5);
         jScrollPane3.setViewportView(textarea3);
@@ -1013,6 +1015,8 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         CardLayout card = (CardLayout) Main.getLayout();
         card.show(Main, "Arbol");
+        Listnodo1.setModel(new DefaultListModel());
+        Listnodo3.setModel(new DefaultListModel());
         grafo.clear();
         arbol.clear();
         grafo.addAttribute("ui.stylesheet", "edge{text-alignment:above;} node{size:50px; text-alignment:above; fill-mode: image-scaled; fill-image: url('.\\ka.png');}");
@@ -1316,6 +1320,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
             if (repetido) {
                 String text = NombreId.getText();
                 grafo.addNode(text);
+                grafo.getNode(text).addAttribute("ui.label", grafo.getNode(text).getId());
                 DefaultListModel lista = (DefaultListModel) Listnodo.getModel();
                 lista.addElement(text);
                 Listnodo.setModel(lista);
@@ -1331,9 +1336,6 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private void ViewerBotonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ViewerBotonMouseReleased
         // TODO add your handling code here:
         if (grafo.getNodeCount() > 0) {
-            for (org.graphstream.graph.Node node : grafo) {
-                node.addAttribute("ui.label", node.getId());
-            }
             Viewer viewer = grafo.display();
             viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
         }
@@ -1387,6 +1389,7 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
             if (repetido) {
                 String text = NombreId1.getText();
                 grafo.addNode(text);
+                grafo.getNode(text).addAttribute("ui.label", grafo.getNode(text).getId());
                 DefaultListModel lista = (DefaultListModel) Listnodo.getModel();
                 lista.addElement(text);
                 Listnodo1.setModel(lista);
@@ -1402,12 +1405,6 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
     private void ViewerBoton1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ViewerBoton1MouseReleased
         // TODO add your handling code here:
         if (grafo.getNodeCount() > 0) {
-            for (org.graphstream.graph.Node node : grafo) {
-                node.addAttribute("ui.label", node.getId());
-                for (Edge edge : node) {
-                    edge.addAttribute("ui.label", edge.getAttribute("Peso") + "");
-                }
-            }
             Viewer viewer = grafo.display();
             viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
         }
@@ -1426,7 +1423,9 @@ public class ProyectoEdD1 extends javax.swing.JFrame {
                 String id2 = Listnodo3.getSelectedValue();
                 grafo.addEdge(id1 + id2, id1, id2);
                 grafo.getEdge(id1 + id2).addAttribute("Peso", jSpinner1.getValue());
+                grafo.getEdge(id1 + id2).addAttribute("ui.label", grafo.getEdge(id1 + id2).getAttribute("Peso") + "");
                 JOptionPane.showMessageDialog(this, "Arista entre " + id1 + " y " + id2 + " con un peso de " + jSpinner1.getValue() + " creada exitosamente!");
+                jSpinner1.setValue(1);
             }
         }
     }//GEN-LAST:event_AristaBoton1MouseReleased
